@@ -1,15 +1,32 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using CameraClassLibrary;
+using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SecurityCameraWebAPI.Managers;
+using System.Drawing;
 
 namespace SecurityCameraWebAPI.Controllers
 {
+    [Route("Camera")]
+    //[EnableCors("AllowAll")]
+    [ApiController]
     public class CameraController : Controller
     {
-        // GET: CameraController
-        public ActionResult Index()
+        private readonly CameraManager _manager;
+
+        public CameraController(/*CameraManager context*/)
         {
-            return View();
+            _manager = new CameraManager();
         }
+
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [HttpGet]
+        public Image GetRecords([FromQuery] string? title)
+        {
+            return _manager.GetFingerPrint();
+        }
+
 
         // GET: CameraController/Details/5
         public ActionResult Details(int id)

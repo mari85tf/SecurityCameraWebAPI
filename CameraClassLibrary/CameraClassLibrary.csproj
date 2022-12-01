@@ -1,9 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,17 +17,6 @@
 
   <ItemGroup>
     <PackageReference Include="System.Drawing.Common" Version="7.0.0" />
-    <PackageReference Include="System.Drawing.Primitives" Version="4.3.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\CameraClassLibrary\CameraClassLibrary.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="CameraClassLibrary">
-      <HintPath>..\..\CameraClassLibrary\CameraClassLibrary\bin\Debug\net6.0\CameraClassLibrary.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
 </Project>
