@@ -22,9 +22,11 @@ namespace SecurityCameraWebAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [HttpGet]
-        public Image GetRecords([FromQuery] string? title)
+        public ActionResult GetImage()
         {
-            return _manager.GetFingerPrint();
+            List<Camera> cameraList = _manager.GetAll();
+
+            return File(cameraList[0].Picture, "image/jpeg");
         }
 
 
