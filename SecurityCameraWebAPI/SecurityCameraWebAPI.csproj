@@ -26,10 +26,4 @@
     <ProjectReference Include="..\CameraClassLibrary\CameraClassLibrary.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Reference Include="CameraClassLibrary">
-      <HintPath>..\..\CameraClassLibrary\CameraClassLibrary\bin\Debug\net6.0\CameraClassLibrary.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
 </Project>
