@@ -10,7 +10,7 @@ namespace SecurityCameraWebAPI.Managers
         private static int _nextId = 1;
         private static readonly List<Camera> Data = new List<Camera>
         {
-            new Camera {Id = 1, PictureId= _nextId++, Date=DateTime.Now, Picture= File.ReadAllBytes("C:\\Users\\Acer\\Desktop\\SecurityCameraWebAPI-master2\\SecurityCameraWebAPI\\SecurityCameraWebAPI\\Managers\\ParkerMo.jpeg"), FileType = "jpeg", MyImage = null},
+            new Camera {Id = 1, PictureId= _nextId++, Date=DateTime.Now, Picture= File.ReadAllBytes("C:\\Users\\Maria\\Documents\\DENEMARKEN\\Project\\WebAPI\\SecurityCameraWebAPI\\Managers\\ParkerMo.jpeg"), FileType = "jpeg", MyImage = null},
             new Camera {Id = 1, PictureId= _nextId++, Date=DateTime.Today, Picture= null, FileType=null},
         };
 

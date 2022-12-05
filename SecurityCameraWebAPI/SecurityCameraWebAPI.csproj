@@ -23,7 +23,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CameraClassLibrary\CameraClassLibrary.csproj" />
+    <ProjectReference Include="..\CameraClassLibrary\CameraClassLibrary.csproj">
+      <Private>True</Private>
+    </ProjectReference>
   </ItemGroup>
 
 </Project>
