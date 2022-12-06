@@ -9,7 +9,7 @@ namespace SecurityCameraWebAPI.Controllers
 {
     [Route("Camera")]
     //[EnableCors("AllowAll")]
-    [ApiController]
+    [ApiController] 
     public class CameraController : Controller
     {
         private readonly CameraManager _manager;
