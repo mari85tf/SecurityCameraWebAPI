@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace SecurityCameraWebAPI.Managers
 {
-    public class CameraManagerDB
+    public class CameraManagerDB : ICameraManager
     {
         private CameraContext _context;
 
@@ -33,9 +33,9 @@ namespace SecurityCameraWebAPI.Managers
             return foundCamera;
         }
 
-        public IEnumerable<Camera> GetAll()
+        public List<Camera> GetAll()
         {
-            return _context.Cameras;
+            return _context.Cameras.ToList();
         }
 
         public Camera? GetById(int Id)

@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+using SecurityCameraWebAPI;
 using SecurityCameraWebAPI.Interfaces;
 using SecurityCameraWebAPI.Managers;
 
@@ -23,6 +25,7 @@ builder.Services.AddCors(options =>
                                   .AllowAnyHeader();
                               });
 });
+builder.Services.AddDbContext<CameraContext>(opt => opt.UseSqlServer(Secrets.ConnectionString));
 
 var app = builder.Build();
 
