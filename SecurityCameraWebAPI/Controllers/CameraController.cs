@@ -12,12 +12,9 @@ namespace SecurityCameraWebAPI.Controllers
     [ApiController] 
     public class CameraController : Controller
     {
-        private readonly CameraManager _manager;
+        private readonly CameraManager _manager = new CameraManager();
 
-        public CameraController(/*CameraManager context*/)
-        {
-            _manager = new CameraManager();
-        }
+        
 
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
@@ -30,73 +27,33 @@ namespace SecurityCameraWebAPI.Controllers
         }
 
 
-        // GET: CameraController/Details/5
-        public ActionResult Details(int id)
+        [HttpGet]
+        public IEnumerable<Camera> Get()
         {
-            return View();
+            return _manager.GetAll();
         }
 
-        // GET: CameraController/Create
-        public ActionResult Create()
+        // GET api/<CameraController>/5
+        [HttpGet("{id}")]
+        public Camera Get(int id)
         {
-            return View();
+            return _manager.GetById(id);
         }
 
-        // POST: CameraController/Create
+        // POST api/<CameraController>
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public Camera Post([FromBody] Camera value)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            return _manager.Add(value);
         }
 
-        // GET: CameraController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
+      
 
-        // POST: CameraController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        // DELETE api/<CameraController>/5
+        [HttpDelete("{id}")]
+        public Camera Delete(int id)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: CameraController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: CameraController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            return _manager.Delete(id);
         }
     }
 }
