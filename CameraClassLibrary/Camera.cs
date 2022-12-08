@@ -33,10 +33,10 @@ namespace CameraClassLibrary
             if (Picture == null) throw new ArgumentNullException(nameof(Name));
         }
 
-        public void ValidateMyImage()
-        {
-            if(MyImage == null) throw new ArgumentNullException(nameof(MyImage));
-        }
+        //public void ValidateMyImage()
+        //{
+        //    if(MyImage == null) throw new ArgumentNullException(nameof(MyImage));
+        //}
         public void ValidateFileType()
         {
             if (FileType == null) throw new ArgumentNullException(nameof(Name));

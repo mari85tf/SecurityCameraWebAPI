@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CameraClassLibrary", "Camer
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecurityCameraWebAPITests", "SecurityCameraWebAPITests\SecurityCameraWebAPITests.csproj", "{911D9F98-ED9D-4015-AABE-836E638C9184}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CameraClassLibraryTests", "CameraClassLibraryTests\CameraClassLibraryTests.csproj", "{44CF4C27-BD43-4A76-8BBD-C41DFA59A5FC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{911D9F98-ED9D-4015-AABE-836E638C9184}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{911D9F98-ED9D-4015-AABE-836E638C9184}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{911D9F98-ED9D-4015-AABE-836E638C9184}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44CF4C27-BD43-4A76-8BBD-C41DFA59A5FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44CF4C27-BD43-4A76-8BBD-C41DFA59A5FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44CF4C27-BD43-4A76-8BBD-C41DFA59A5FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44CF4C27-BD43-4A76-8BBD-C41DFA59A5FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
