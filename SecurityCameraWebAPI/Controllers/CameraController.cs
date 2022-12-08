@@ -28,32 +28,55 @@ namespace SecurityCameraWebAPI.Controllers
 
 
         [HttpGet]
-        public IEnumerable<Camera> Get()
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public ActionResult<IEnumerable<Camera>> Get()
         {
             return _manager.GetAll();
         }
 
         // GET api/<CameraController>/5
         [HttpGet("{id}")]
-        public Camera Get(int id)
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<Camera> Get(int id)
         {
-            return _manager.GetById(id);
+            Camera camera = _manager.GetById(id);
+            if (camera == null) return NotFound("No such id, " + id);
+            return Ok(camera);
         }
 
         // POST api/<CameraController>
         [HttpPost]
-        public Camera Post([FromBody] Camera value)
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public ActionResult<Camera> Post([FromBody] Camera value)
         {
-            return _manager.Add(value);
+            //Camera camera = _manager.Add(value);
+            //if (camera == null) return BadRequest();
+            //return Ok(camera);
+            try
+            {
+                Camera newCamera = _manager.Add(value);
+                string uri = Url.RouteUrl(RouteData.Values) + "/" + newCamera.Id;
+                return Created(uri, newCamera);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
       
 
         // DELETE api/<CameraController>/5
         [HttpDelete("{id}")]
-        public Camera Delete(int id)
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<Camera> Delete(int id)
         {
-            return _manager.Delete(id);
+            Camera camera = _manager.Delete(id);
+            if (camera == null) return NotFound("No such id, " + id);
+            return Ok(camera);
         }
     }
 }
