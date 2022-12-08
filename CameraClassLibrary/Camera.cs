@@ -33,10 +33,6 @@ namespace CameraClassLibrary
             if (Picture == null) throw new ArgumentNullException(nameof(Name));
         }
 
-        //public void ValidateMyImage()
-        //{
-        //    if(MyImage == null) throw new ArgumentNullException(nameof(MyImage));
-        //}
         public void ValidateFileType()
         {
             if (FileType == null) throw new ArgumentNullException(nameof(Name));
@@ -44,7 +40,7 @@ namespace CameraClassLibrary
         public override string ToString()
         {
             return "Id: " + Id + " - PictureId: " + PictureId + " - Name: " + Name + " - Date: " + Date + " - Picture: " +
-                Picture + " - MyImage: " + MyImage + " - FileType: " + FileType;
+                Picture +  " - FileType: " + FileType;
         }
     }
 }
