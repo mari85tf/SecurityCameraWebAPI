@@ -16,15 +16,15 @@ namespace SecurityCameraWebAPI.Controllers
 
         
 
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status204NoContent)]
-        [HttpGet]
-        public ActionResult GetImage()
-        {
-            List<Camera> cameraList = _manager.GetAll();
+        //[ProducesResponseType(StatusCodes.Status200OK)]
+        //[ProducesResponseType(StatusCodes.Status204NoContent)]
+        //[HttpGet]
+        //public ActionResult GetImage()
+        //{
+        //    List<Camera> cameraList = _manager.GetAll();
 
-            return File(cameraList[0].Picture, "image/jpeg");
-        }
+        //    return File(cameraList[0].Picture, "image/jpeg");
+        //}
 
 
         [HttpGet]
