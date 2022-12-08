@@ -21,5 +21,30 @@ namespace CameraClassLibrary
         public Image? MyImage { get; set; }
 
         public string? FileType { get;set; }
+
+        public void ValidateName()
+        {
+            if(Name == null) throw new ArgumentNullException(nameof(Name));
+            if (Name.Length < 2) throw new ArgumentException(nameof(Name));
+        }
+
+        public void ValidatePicture()
+        {
+            if (Picture == null) throw new ArgumentNullException(nameof(Name));
+        }
+
+        public void ValidateMyImage()
+        {
+            if(MyImage == null) throw new ArgumentNullException(nameof(MyImage));
+        }
+        public void ValidateFileType()
+        {
+            if (FileType == null) throw new ArgumentNullException(nameof(Name));
+        }
+        public override string ToString()
+        {
+            return "Id: " + Id + " - PictureId: " + PictureId + " - Name: " + Name + " - Date: " + Date + " - Picture: " +
+                Picture + " - MyImage: " + MyImage + " - FileType: " + FileType;
+        }
     }
 }
