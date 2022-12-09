@@ -29,9 +29,12 @@ namespace SecurityCameraWebAPI.Controllers
 
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         public ActionResult<IEnumerable<Camera>> Get()
         {
-            return _manager.GetAll();
+            IEnumerable<Camera> cameras = _manager.GetAll();
+            if (cameras == null || cameras.Count() == 0) return NoContent();
+            return Ok(cameras);
         }
 
         // GET api/<CameraController>/5
