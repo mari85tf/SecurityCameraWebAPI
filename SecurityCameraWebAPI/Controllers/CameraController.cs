@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SecurityCameraWebAPI.Interfaces;
 using SecurityCameraWebAPI.Managers;
 using System.Drawing;
 
@@ -12,9 +13,14 @@ namespace SecurityCameraWebAPI.Controllers
     [ApiController] 
     public class CameraController : Controller
     {
-        private readonly CameraManager _manager = new CameraManager();
+        private readonly ICameraManager _manager;
 
-        
+        public CameraController(CameraContext context)
+        {
+            _manager = new CameraManagerDB(context);
+        }
+
+
 
         //[ProducesResponseType(StatusCodes.Status200OK)]
         //[ProducesResponseType(StatusCodes.Status204NoContent)]
