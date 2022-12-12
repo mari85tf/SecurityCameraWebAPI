@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using SecurityCameraWebAPI;
+using SecurityCameraWebAPI.DBContext;
 using SecurityCameraWebAPI.Interfaces;
 using SecurityCameraWebAPI.Managers;
 

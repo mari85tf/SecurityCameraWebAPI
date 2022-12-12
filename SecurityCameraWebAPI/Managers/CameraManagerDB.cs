@@ -1,4 +1,5 @@
 ﻿using CameraClassLibrary;
+using SecurityCameraWebAPI.DBContext;
 using SecurityCameraWebAPI.Interfaces;
 using System.Collections.Generic;
 

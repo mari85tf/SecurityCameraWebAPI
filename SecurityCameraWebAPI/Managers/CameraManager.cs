@@ -10,8 +10,14 @@ namespace SecurityCameraWebAPI.Managers
         private static int _nextId = 1;
         private static readonly List<Camera> Data = new List<Camera>
         {
-            new Camera {Id = 1, PictureId= _nextId++, Date=DateTime.Now, Picture= File.ReadAllBytes("C:\\Users\\Maria\\Documents\\DENEMARKEN\\Project\\WebAPI\\SecurityCameraWebAPI\\Managers\\ParkerMo.jpeg"), FileType = "jpeg"},
-            new Camera {Id = 1, PictureId= _nextId++, Date=DateTime.Today, Picture= null, FileType=null},
+            new Camera {Id = 1, PictureId= _nextId++, Date=DateTime.Now, Picture= File.ReadAllBytes("C:\\Users\\Acer\\Desktop\\SecurityCameraAPI\\SecurityCameraWebAPI\\SecurityCameraWebAPI\\Managers\\ParkerMo.jpeg"), FileType = "jpeg", Name ="SecurityCameraSnap1"},
+            new Camera {Id = 1, PictureId= _nextId++, Date=DateTime.Today, Picture= File.ReadAllBytes("C:\\Users\\Acer\\Desktop\\SecurityCameraAPI\\SecurityCameraWebAPI\\SecurityCameraWebAPI\\Managers\\avatar7.png"), FileType = "jpeg", Name ="SecurityCameraSnap2"},
+                        new Camera {Id = 1, PictureId= 9999, Date=DateTime.Today, Picture= File.ReadAllBytes("C:\\Users\\Acer\\Desktop\\SecurityCameraAPI\\SecurityCameraWebAPI\\SecurityCameraWebAPI\\Managers\\NoConnection.png"), FileType = "jpeg", Name ="No connection to the database!!"},
+
+                                    new Camera {Id = 1, PictureId= _nextId++, Date=DateTime.Today, Picture= File.ReadAllBytes("C:\\Users\\Acer\\Desktop\\SecurityCameraAPI\\SecurityCameraWebAPI\\SecurityCameraWebAPI\\Managers\\avatar7.png"), FileType = "jpeg", Name ="SecurityCameraSnap2"},
+            new Camera {Id = 1, PictureId= _nextId++, Date=DateTime.Today, Picture= File.ReadAllBytes("C:\\Users\\Acer\\Desktop\\SecurityCameraAPI\\SecurityCameraWebAPI\\SecurityCameraWebAPI\\Managers\\avatar7.png"), FileType = "jpeg", Name ="SecurityCameraSnap2"},
+            new Camera {Id = 1, PictureId= _nextId++, Date=DateTime.Today, Picture= File.ReadAllBytes("C:\\Users\\Acer\\Desktop\\SecurityCameraAPI\\SecurityCameraWebAPI\\SecurityCameraWebAPI\\Managers\\avatar7.png"), FileType = "jpeg", Name ="SecurityCameraSnap2"},
+
         };
 
 
@@ -24,7 +30,7 @@ namespace SecurityCameraWebAPI.Managers
 
         public Camera GetById(int id)
         {
-            return Data.Find(Camera => Camera.Id == id);
+            return Data.Find(Camera => Camera.PictureId == id);
         }
 
         public Camera Add(Camera newCamera)

@@ -18,7 +18,6 @@ namespace CameraClassLibrary
         public DateTime Date { get; set; }
 
         public byte[]? Picture { get; set; }
-        public Image? MyImage { get; set; }
 
         public string? FileType { get;set; }
 

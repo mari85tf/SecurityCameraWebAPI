@@ -1,11 +1,12 @@
 ﻿using CameraClassLibrary;
 using Microsoft.EntityFrameworkCore;
 
-namespace SecurityCameraWebAPI.Managers
+namespace SecurityCameraWebAPI.DBContext
 {
     public class CameraContext : DbContext
     {
-        public CameraContext(DbContextOptions<CameraContext> options): base(options) { 
+        public CameraContext(DbContextOptions<CameraContext> options) : base(options)
+        {
 
         }
 

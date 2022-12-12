@@ -3,32 +3,28 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SecurityCameraWebAPI.Managers;
+using SecurityCameraWebAPI.Interfaces;
+using SecurityCameraWebAPI.DBContext;
 using System.Drawing;
 
 namespace SecurityCameraWebAPI.Controllers
 {
-    [Route("Camera")]
-    //[EnableCors("AllowAll")]
+    [Route("CameraAPI")]
+    [EnableCors("AllowAll")]
     [ApiController] 
     public class CameraController : Controller
     {
-        private readonly CameraManager _manager = new CameraManager();
+        private readonly ICameraManager _manager;
 
-        
+        public CameraController(CameraContext context)
+        {
+            _manager = new CameraManagerDB(context);
+            //_manager = new CameraManager();
+        }
 
-        //[ProducesResponseType(StatusCodes.Status200OK)]
-        //[ProducesResponseType(StatusCodes.Status204NoContent)]
-        //[HttpGet]
-        //public ActionResult GetImage()
-        //{
-        //    List<Camera> cameraList = _manager.GetAll();
-
-        //    return File(cameraList[0].Picture, "image/jpeg");
-        //}
-
-
-        [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [HttpGet]
         public ActionResult<IEnumerable<Camera>> Get()
         {
             return _manager.GetAll();
@@ -43,6 +39,14 @@ namespace SecurityCameraWebAPI.Controllers
             Camera camera = _manager.GetById(id);
             if (camera == null) return NotFound("No such id, " + id);
             return Ok(camera);
+        }
+
+        [HttpGet("Images/{id}")]
+        public ActionResult GetImage(int id)
+        {
+            Camera camera = _manager.GetById(id);
+            byte[] image = camera.Picture;
+            return File(image, "image/jpg");
         }
 
         // POST api/<CameraController>
